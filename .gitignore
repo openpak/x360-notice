@@ -1,0 +1,4 @@
+.env
+/x360-notice
+/dist
+*.log
