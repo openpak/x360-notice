@@ -26,7 +26,7 @@ health check; no firmware path uses it.
 `notice.xbox.com` answers the XML request with a 301 to `xnotify-production-origin.xboxlive.com` over HTTPS and serves
 this document there; here the document is served directly, which is what the firmware was shown to accept.
 
-Naming rule: every OpenPak Xbox 360 service is called `x360-<thing>`. Sibling: [`x360-xexds`](../x360-xexds).
+Naming rule: every OpenPak Xbox 360 service is called `x360-<thing>`. Sibling: [`x360-xexds`](x360-xexds).
 
 Architecture: **a real Xbox 360 and the Wharf emulator hit the same endpoints.** OpenPak's DNS (or Wharf's
 `nic_dns_hosts`) redirects `xncsi.xboxlive.com` and `notice.xbox.com` to OpenPak, the consoles connect on port 80,
