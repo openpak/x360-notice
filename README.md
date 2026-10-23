@@ -39,10 +39,10 @@ answered too, **Internet: Connected** against the stand-in equivalents of these 
 firmware's own HTTP/1.0 request shape over TCP) and by a raw HTTP/1.0 request against a running instance. It has **not**
 yet been pointed at by the emulator itself, not tried by a real console, and not deployed.
 
-The request shape (from [`docs/xbox360/wharf-base-plan.md`](../docs/xbox360/wharf-base-plan.md), "Connectivity test
+The request shape (from internal research notes, "Connectivity test
 traffic"): `GET <path> HTTP/1.0`, a `Host` header, user agent `Xbox Downloader/2.0.17559.0`, nothing else. The NCSI answer
 Microsoft gave was `200 OK` with the 9-byte `text/plain` body `Xbox NCSI`. Protocol knowledge comes only from OpenPak's
-own documents and the firmware's observed behaviour; see the [clean-room policy](../docs/clean-room-policy.md).
+own documents and the firmware's observed behaviour; see the [clean-room policy](https://docs.openpak.org/contributors/clean-room/).
 
 ## Run
 

@@ -4,7 +4,7 @@
 //	GET /XBOXNCSI.txt                                    (xncsi.xboxlive.com)
 //	GET /xocdata/xml/<locale>/servicestatusChannel.xml   (notice.xbox.com)
 //
-// Both are documented in docs/xbox360/wharf-base-plan.md ("Connectivity test
+// Both are documented in internal research notes ("Connectivity test
 // traffic"). The real firmware sends HTTP/1.0 with a Host header and a
 // "Xbox Downloader/2.0.17559.0" User-Agent, nothing else. The hostnames are
 // not looked at: the paths tell the two apart, and DNS decides who reaches us.
