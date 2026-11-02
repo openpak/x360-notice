@@ -30,3 +30,7 @@ The request shape (from internal research notes, "Connectivity test
 traffic"): `GET <path> HTTP/1.0`, a `Host` header, user agent `Xbox Downloader/2.0.17559.0`, nothing else. The NCSI answer
 Microsoft gave was `200 OK` with the 9-byte `text/plain` body `Xbox NCSI`. Protocol knowledge comes only from OpenPak's
 own documents and the firmware's observed behaviour; see the [clean-room policy](https://docs.openpak.org/contributors/clean-room/).
+
+## Probe
+
+The firmware's Test Xbox Live Connection shows Network: Connected and, with the XEXDS probe answered too, Internet: Connected against the stand-in equivalents of these two answers (Wharf `-ncsi`, from which these responses were copied). The locale is accepted but not interpreted: all locales get the same English text. No other `notice.xbox.com` or Xbox Live page is served.

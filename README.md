@@ -27,9 +27,7 @@ curl -i http://127.0.0.1:8080/XBOXNCSI.txt
 ## Docs
 
 - [Protocol](docs/protocol.md)
-- [Evidence](docs/evidence.md)
 - [Deploy](docs/deploy.md)
-- [Notes](docs/notes.md)
 
 ## Licence
 

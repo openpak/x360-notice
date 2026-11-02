@@ -26,3 +26,7 @@ docker build -t x360-notice .
 |---|---|---|---|
 | `X360_NOTICE_ADDR` | no | `:8080` | HTTP listen address (plain HTTP; real consoles arrive on :80 through the reverse proxy) |
 | `X360_NOTICE_STATUS_TEXT` | no | `Xbox LIVE is up and running` | the `MessageText` of the service-status document, XML-escaped |
+
+## Release
+
+Tag `v*.*.*` publishes `ghcr.io/openpak/x360-notice`; deployed hosts auto-update from it.
