@@ -12,6 +12,7 @@ import (
 	"syscall"
 	"time"
 
+	"github.com/openpak/x360-common/httplog"
 	"openpak/x360-notice/internal/config"
 	"openpak/x360-notice/internal/notice"
 )
@@ -23,7 +24,7 @@ func main() {
 		log.Error("config", "err", err)
 		os.Exit(2)
 	}
-	srv := notice.New(cfg.Addr, logged(notice.Handler(cfg.StatusText), log))
+	srv := notice.New(cfg.Addr, httplog.Wrap(notice.Handler(cfg.StatusText)))
 	ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)
 	defer stop()
 	go func() {
@@ -37,25 +38,4 @@ func main() {
 		log.Error("serve", "err", err)
 		os.Exit(1)
 	}
-}
-
-// logged records every request except health checks.
-func logged(next http.Handler, log *slog.Logger) http.Handler {
-	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		sw := &statusWriter{ResponseWriter: w, status: http.StatusOK}
-		next.ServeHTTP(sw, r)
-		if r.URL.Path != "/healthz" {
-			log.Info("request", "method", r.Method, "host", r.Host, "path", r.URL.Path, "status", sw.status, "ua", r.UserAgent())
-		}
-	})
-}
-
-type statusWriter struct {
-	http.ResponseWriter
-	status int
-}
-
-func (s *statusWriter) WriteHeader(code int) {
-	s.status = code
-	s.ResponseWriter.WriteHeader(code)
 }
